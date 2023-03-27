@@ -1,9 +1,17 @@
 import { ThemeProvider, DefaultTheme } from 'styled-components';
+
 import usePersistedState from './utils/usePersistedState';
 import light from './styles/themes/light';
 import dark from './styles/themes/dark';
-import Header from './components/header';
+
+
 import GlobalStyle from './styles/global';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Experience from './components/Experience';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
+
 const App: React.FC = () => {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', light);
   const toggleTheme = () => {
@@ -14,6 +22,10 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header toggleTheme={toggleTheme} />
+      <Hero />
+      <Experience />
+      <Portfolio />
+      <Contact />
     </ThemeProvider>
   );
 };

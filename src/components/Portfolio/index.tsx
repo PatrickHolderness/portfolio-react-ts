@@ -1,29 +1,23 @@
-import {
-  BtnsWrapper,
-  Button,
-  Description,
-  Grid,
-  GridItem,
-  Heading,
-  Main,
-  Thumbnail,
-} from './styles';
 
-const Portfolio = () => {
+import { BtnsWrapper, Button, Grid, GridItem, Main, Thumbnail } from './styles';
+
+const Portfolio: React.FC = () => {
+
   return (
     <Main id="Portfolio">
-      <Heading>Portfolio</Heading>
-      <Description>Check out some of my work here</Description>
+      <h2>{('Portfolio')}</h2>
+      <p>{('PortfolioDescription')}</p>
       <Grid>
         <GridItem>
           <Thumbnail />
           <BtnsWrapper>
-            <Button>Demo</Button>
-            <Button>Code</Button>
+
+            <Button>{('Demo')}</Button>
+            <Button>{('Code')}</Button>
           </BtnsWrapper>
         </GridItem>
       </Grid>
-    </Main>
-  );
-};
-export default Portfolio;
+       </Main>
+       );
+     };
+     export default Portfolio;

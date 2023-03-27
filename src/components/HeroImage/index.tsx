@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import Image from '../../assets/image1.png';
-import ImageBg from '../../assets/image2.png';
+// import ImageBg from '../../assets/image2.png';
 import { Container, Picture, PictureBg, Slider } from './styles';
 
 const HeroImage: React.FC = () => {
@@ -17,7 +17,7 @@ const HeroImage: React.FC = () => {
   return (
     <Container>
       <Picture src={Image} />
-      <PictureBg ref={imageRef} src={ImageBg} />
+      {/* <PictureBg ref={imageRef} src={ImageBg} /> */}
       <Slider
         type="range"
         min="0"

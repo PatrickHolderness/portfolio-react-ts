@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Section = styled.section`
   display: flex;
   align-items: center;
-  justify-content: center;
+
   height: calc(100vh - 80px);
   width: 100%;
   @media screen and (max-width: 768px) {

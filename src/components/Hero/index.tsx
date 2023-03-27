@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       <TextContainer>
         <Heading>{('HeroHeading')}</Heading>
         <Paragraph>{('HeroParagraph')}</Paragraph>
-        <Button to="Portfolio" smooth={true} duration={500}>
+        <Button to="Portfolio" smooth={true} offset={-80} duration={500}>
           {('Portfolio')}
         </Button>
       </TextContainer>
