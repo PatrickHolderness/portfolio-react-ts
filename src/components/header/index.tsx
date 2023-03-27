@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import Switch from 'react-switch';
@@ -16,7 +16,10 @@ import {
   NavLinks,
   NavLogo,
   NavMenu,
-  ToggleBtn,
+  Sun,
+  Moon,
+  MobileMenu,
+  MobileBtns,
 } from './styles';
 
 interface Props {
@@ -25,13 +28,17 @@ interface Props {
 
 const Header: React.FC<Props> = ({ toggleTheme }) => {
   const { colors, title } = useContext(ThemeContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
+    <>
     <Navbar>
       <Nav>
-        <NavLogo src={Logo} />
+        <NavLogo to="/" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
+          <img src={Logo} alt="logo" width="90px" />
+        </NavLogo>
         <MobileIcon>
-          <Hamburger />
+          <Hamburger toggled={isOpen} toggle={() => setIsOpen(!isOpen)} />
         </MobileIcon>
         <NavMenu>
           {LINKS.map(link => (
@@ -41,18 +48,47 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
           ))}
         </NavMenu>
         <NavBtns>
+            <Switch
+              onChange={toggleTheme}
+              checked={title === 'dark'}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              offHandleColor="#555"
+              onHandleColor="#555"
+              checkedHandleIcon={<Moon color={colors.text} />}
+              uncheckedHandleIcon={<Sun color="gold" />}
+              offColor="#555"
+              onColor="#555"
+              width={60}
+              height={30}
+            />
+          </NavBtns>
+        </Nav>
+      </Navbar>
+      <MobileMenu isOpen={isOpen} onClick={() => setIsOpen(false)}>
+        {LINKS.map(link => (
+          <NavItem key={link.id}>
+            <NavLinks to={link.name}>{(link.name)}</NavLinks>
+          </NavItem>
+        ))}
+        <MobileBtns onClick={e => e.stopPropagation()}>
           <Switch
             onChange={toggleTheme}
             checked={title === 'dark'}
             checkedIcon={false}
             uncheckedIcon={false}
-            offColor={colors.accent}
-            onColor={colors.textSecondary}
+            offHandleColor="#555"
+            onHandleColor="#555"
+            checkedHandleIcon={<Moon color={colors.text} />}
+            uncheckedHandleIcon={<Sun color="gold" />}
+            offColor="#555"
+            onColor="#555"
+            width={60}
+            height={30}
           />
-          <ToggleBtn>d/l</ToggleBtn>
-        </NavBtns>
-      </Nav>
-    </Navbar>
+        </MobileBtns>
+      </MobileMenu>
+    </>
   );
 };
 export default Header;
