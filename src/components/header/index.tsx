@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
 
 import Switch from 'react-switch';
@@ -30,11 +30,27 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
   const { colors, title } = useContext(ThemeContext);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
+
   return (
     <>
     <Navbar>
       <Nav>
-        <NavLogo to="/" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
+      <NavLogo
+            to="Home"
+            spy={true}
+            smooth={true}
+            offset={-80}
+            duration={500}
+            onClick={() => setIsOpen(false)}
+          >
           <img src={Logo} alt="logo" width="90px" />
         </NavLogo>
         <MobileIcon>
@@ -43,7 +59,9 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
         <NavMenu>
           {LINKS.map(link => (
             <NavItem key={link.id}>
-              <NavLinks to={link.name}>{(link.name)}</NavLinks>
+                <NavLinks to={link.name} spy={true} smooth={true} offset={-80} duration={500}>
+                  {(link.name)}
+                </NavLinks>
             </NavItem>
           ))}
         </NavMenu>
@@ -68,7 +86,16 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
       <MobileMenu isOpen={isOpen} onClick={() => setIsOpen(false)}>
         {LINKS.map(link => (
           <NavItem key={link.id}>
-            <NavLinks to={link.name}>{(link.name)}</NavLinks>
+            <NavLinks
+              to={link.name}
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              onClick={() => setIsOpen(false)}
+            >
+              {(link.name)}
+            </NavLinks>
           </NavItem>
         ))}
         <MobileBtns onClick={e => e.stopPropagation()}>

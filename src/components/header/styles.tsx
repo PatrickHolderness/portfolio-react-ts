@@ -71,7 +71,7 @@ export const NavLinks = styled(Link)`
   color: ${props => props.theme.colors.text};
   text-decoration: none;
   user-select: none;
-  transition: 0.3s;
+  transition: 0.3s color;
   cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.accent};
@@ -102,6 +102,7 @@ export const MobileMenu = styled.ul<MobileMenuProps>`
   background: ${props => props.theme.colors.background};
   list-style: none;
   transition: 0.5s transform;
+  z-index: 1;
   @media screen and (max-width: 568px) {
     gap: 10px;
   }
