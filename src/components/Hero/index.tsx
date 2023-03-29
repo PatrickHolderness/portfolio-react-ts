@@ -1,6 +1,7 @@
 
 import HeroImage from '../HeroImage';
-import { Button, Heading, Paragraph, Section, TextContainer } from './styles';
+import { Heading, Paragraph, Section, TextContainer } from './styles';
+import { LinkButton } from '../Buttons/styles';
 
 const Hero: React.FC = () => {
 
@@ -9,11 +10,11 @@ const Hero: React.FC = () => {
     <Section id="Home">
       <HeroImage />
       <TextContainer>
-        <Heading>{('HeroHeading')}</Heading>
-        <Paragraph>{('HeroParagraph')}</Paragraph>
-        <Button to="Portfolio" smooth={true} offset={-80} duration={500}>
+        <Heading>{('Hello')}</Heading>
+        <Paragraph>{('I`m Patrick, a full stack web developer based in Berlin.')}</Paragraph>
+        <LinkButton to="Portfolio" smooth={true} offset={-80} duration={500}>
           {('Portfolio')}
-        </Button>
+        </LinkButton>
       </TextContainer>
     </Section>
   );

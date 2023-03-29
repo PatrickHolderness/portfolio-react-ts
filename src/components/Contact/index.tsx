@@ -1,20 +1,21 @@
 import * as yup from 'yup';
 import { useFormik } from 'formik';
+import axios from 'axios';
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import {
   Form,
   FormContainer,
   HeadingContainer,
   Section,
-  SubmitBtn,
-  Textarea,
+  TextArea,
   Wrapper,
   Label,
   Input,
   FormItem,
   FeedbackContainer,
 } from './styles';
-import axios from 'axios';
+
+import { Button } from '../Buttons/styles';
 
 const Contact: React.FC = () => {
  
@@ -36,11 +37,12 @@ const Contact: React.FC = () => {
   });
 
   function onSubmit() {
-    axios.post('https://getform.io/f/772b6ddd-c4a3-44b2-a018-96ac8fd73e2c', values)
+    axios.post('https://getform.io/f/1fb8e500-493a-494f-a23d-c1a639a53c77', values);
     resetForm();
   }
 
-  const { values, errors, handleChange, handleBlur, handleSubmit, resetForm } = useFormik({
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit, resetForm } = 
+  useFormik({
     initialValues: {
       name: '',
       email: '',
@@ -55,23 +57,17 @@ const Contact: React.FC = () => {
       <Wrapper>
         <HeadingContainer>
           <h2>{('Contact')}</h2>
-          <p>{('ContactDescription')}</p>
+          {/* <p>{('Get in touch with me')}</p> */}
         </HeadingContainer>
         <FormContainer>
-
-          <Form
-            action="https://getform.io/f/772b6ddd-c4a3-44b2-a018-96ac8fd73e2c"
-            method="POST"
-            autoComplete="off"
-            spellCheck={false}
-            onSubmit={handleSubmit}
-          >
+        <Form autoComplete="off" spellCheck={false} onSubmit={handleSubmit}>
             <FormItem>
               <Label htmlFor="name">{('Name')}</Label>
               <Input
                 type="text"
                 name="name"
                 value={values.name}
+                touched={touched.name}
                 error={errors.name}
                 placeholder="John Doe"
                 onChange={handleChange}
@@ -98,6 +94,7 @@ const Contact: React.FC = () => {
                 type="text"
                 name="email"
                 value={values.email}
+                touched={touched.email}
                 error={errors.email}
                 placeholder="johndoe@gmail.com"
                 onChange={handleChange}
@@ -121,15 +118,16 @@ const Contact: React.FC = () => {
 
             <FormItem>
               <Label htmlFor="message">{('Message')}</Label>
-              <Textarea
+              <TextArea
                 name="message"
                 value={values.message}
+                touched={touched.message}
                 error={errors.message}
-                placeholder={('EnterMessage') || 'Enter your message'}
+                placeholder={('Enter your message')}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 rows={10}
-              ></Textarea>
+              ></TextArea>
               <FeedbackContainer>
                 {errors.message ? (
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'crimson' }}>
@@ -145,7 +143,7 @@ const Contact: React.FC = () => {
               </FeedbackContainer>
             </FormItem>
 
-            <SubmitBtn>{('FormCTA')}</SubmitBtn>
+            <Button>{('Send')}</Button>
           </Form>
         </FormContainer>
       </Wrapper>
