@@ -1,5 +1,5 @@
 
-import { Grid, GridItem, HeadingContainer, Label, Section, Wrapper } from './styles';
+import { Grid, GridItem, HeadingContainer, TextContainer, Label, Section, Wrapper } from './styles';
 
 import TECHS from '../../constants/TECHS';
 
@@ -10,18 +10,10 @@ const Experience = () => {
     <Section id="Experience">
       <Wrapper>
           <HeadingContainer>
-          <h2>{('Experience')}</h2>
-          <p>{('ExperienceDescription')}</p>
-        </HeadingContainer>
-    
-        <Grid>
-          {TECHS.map(({ id, title, icon, color }) => (
-            <GridItem key={id} color={color}>
-              {icon}
-              <Label>{title}</Label>
-            </GridItem>
-          ))}
-        </Grid>
+          <h2>{('About Me')}</h2>
+          </HeadingContainer>
+          <TextContainer>Hello hello hello</TextContainer>
+      
       </Wrapper>
     </Section>
   );

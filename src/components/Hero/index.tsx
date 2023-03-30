@@ -10,8 +10,8 @@ const Hero: React.FC = () => {
     <Section id="Home">
       <HeroImage />
       <TextContainer>
-        <Heading>{('Hello')}</Heading>
-        <Paragraph>{('I`m Patrick, a full stack web developer based in Berlin.')}</Paragraph>
+        <Heading>{("I'm a frontend Developer")}</Heading>
+        <Paragraph>{("I'm Patrick, and I'm constantly learning and improving to deliver outstanding web experiences. Currently I love to work with technologies such as React, Typescript, Tailwind and more.")}</Paragraph>
         <LinkButton to="Portfolio" smooth={true} offset={-80} duration={500}>
           {('Portfolio')}
         </LinkButton>

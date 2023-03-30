@@ -34,7 +34,7 @@ body {
 }
 h2 {
   font-size: 2.5rem;
-  border-bottom: 4px solid ${props => props.theme.colors.text};
+  border-bottom: 0px solid ${props => props.theme.colors.text};
   width: fit-content;
 }
 `;

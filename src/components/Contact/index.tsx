@@ -13,13 +13,17 @@ import {
   Input,
   FormItem,
   FeedbackContainer,
+  SocialMediaIcons,
+  Link,
 } from './styles';
 
 import { Button } from '../Buttons/styles';
+import SOCIALS from '../../constants/SOCIALS';
+import { RefObject, useRef } from 'react';
 
 const Contact: React.FC = () => {
  
-
+  const submitRef = useRef<HTMLButtonElement>(null);
 
   const schema = yup.object().shape({
     name: yup
@@ -59,7 +63,17 @@ const Contact: React.FC = () => {
           <h2>{('Contact')}</h2>
           {/* <p>{('Get in touch with me')}</p> */}
         </HeadingContainer>
+
         <FormContainer>
+          <SocialMediaIcons>
+            {SOCIALS.map(({ id, title, icon, link }) => (
+              <Link href={link} target="_blank" key={id}>
+                {icon}
+                {title}
+              </Link>
+            ))}
+          </SocialMediaIcons>
+          
         <Form autoComplete="off" spellCheck={false} onSubmit={handleSubmit}>
             <FormItem>
               <Label htmlFor="name">{('Name')}</Label>

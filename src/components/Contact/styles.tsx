@@ -1,11 +1,10 @@
-
 import styled from 'styled-components';
 
 export const Section = styled.section`
   min-height: calc(100vh - 80px);
   width: 100%;
-
 `;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,6 +29,7 @@ export const HeadingContainer = styled.div`
 
 export const FormContainer = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
@@ -38,7 +38,6 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 2.5rem;
   min-width: 30%;
-  margin-top: 5rem;
   margin-left: auto;
   margin-right: auto;
   @media screen and (max-width: 768px) {
@@ -48,14 +47,13 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label`
-font-weight: 700;
-font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.9rem;
 `;
 
 export const FormItem = styled.div`
   position: relative;
 `;
-
 
 export const FeedbackContainer = styled.div`
   position: absolute;
@@ -68,10 +66,9 @@ export const Message = styled.div`
   color: 'crimson';
 `;
 
-
 type Props = {
   error: string | undefined;
-  touched: boolean | undefined; 
+  touched: boolean | undefined;
 };
 
 export const Input = styled.input<Props>`
@@ -94,7 +91,6 @@ export const Input = styled.input<Props>`
   font-family: inherit;
   font-weight: 600;
   transition: 0.3s;
-
   &:focus {
     box-shadow: 0px 0px 5px 2px ${props => props.theme.colors.text};
   }
@@ -124,10 +120,38 @@ export const TextArea = styled.textarea<Props>`
   font-weight: 600;
   resize: none;
   transition: 0.3s;
-
-  box-shadow: 0px 0px 5px 2px ${props => props.theme.colors.text};
+  &:focus {
+    box-shadow: 0px 0px 5px 2px ${props => props.theme.colors.text};
   }
   &::placeholder {
     font-weight: 400;
+  }
+`;
+
+export const SocialMediaIcons = styled.div`
+  display: flex;
+  place-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin-bottom: 20px;
+`;
+
+export const Link = styled.a`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 0.5rem;
+  color: ${props => props.theme.colors.button};
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-decoration: none;
+  outline: none;
+  transition: 0.3s;
+  &:hover {
+    color: ${props => props.theme.colors.accent};
+  }
+  
+  &:focus {
+    color: ${props => props.theme.colors.accent};
   }
 `;

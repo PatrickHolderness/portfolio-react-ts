@@ -10,7 +10,7 @@ import {
   SiGit,
 } from 'react-icons/si';
 
-const SIZE = 65;
+const SIZE = 50;
 
 const TECHS = [
   {

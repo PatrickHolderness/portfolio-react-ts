@@ -46,6 +46,17 @@ export const Grid = styled.div`
   }
 `;
 
+export const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+
+  `;
+
 export const GridItem = styled.div`
   display: grid;
   place-items: center;

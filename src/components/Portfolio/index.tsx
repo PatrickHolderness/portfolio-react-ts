@@ -25,7 +25,7 @@ const Portfolio: React.FC = () => {
   <Wrapper>
         <HeadingContainer>
           <h2>{('Portfolio')}</h2>
-          <p>{('Portfolio Description')}</p>
+          <p>{('Check out some of my projects here')}</p>
         </HeadingContainer>
         <Grid>
         {PORTFOLIO.map(
@@ -39,11 +39,14 @@ const Portfolio: React.FC = () => {
               thumbnail,
             }) => (
               <GridItem key={id}>
-                <Title>{title}</Title>
+                   <Title>
+                  {title}
+                </Title>
                 <ImageWrapper>
                   <Thumbnail src={thumbnail} />
                 </ImageWrapper>
                 <ProjectData>
+                  {title}
                   <TechContainer>
                     {techs.map(t => (
                       <TechLabel>{t}</TechLabel>
