@@ -13,7 +13,7 @@ const PORTFOLIO = [
     thumbnail: MeetApp,
     techs: ['SPA', 'PWA', 'TDD', 'Google Calendar API', 'OAuth2', 'Serverless Functions', 'React', 'Recharts', 'Unit & Integration Tests', 'Offline caching'],
     livePage: 'https://patrickholderness.github.io/meet/',
-    repository: 'https://www.github.com/patrickholderness/meet-app/',
+    repository: 'https://github.com/PatrickHolderness/meet',
   },
   {
     id: 2,

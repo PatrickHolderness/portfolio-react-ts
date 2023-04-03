@@ -47,12 +47,13 @@ export const Grid = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 100%;
-  width: 100%;
-  position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-self: flex-start;
+   place-items: center; 
+    height: 100%;
+   width: 100%;
+  
 
 
   `;
@@ -69,4 +70,7 @@ export const GridItem = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+
 `;
+
+
